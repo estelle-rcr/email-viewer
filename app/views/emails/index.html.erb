@@ -1,0 +1,38 @@
+<div class="container mx-1 my-1 pt-0">
+  <div class="d-flex justify-content-start mx-2 my-4 pt-0">
+    <h1 class="mt-1 mb-1"> Welcome!</h1>
+  </div>
+  <div class="d-flex justify-content-start mx-2 my-2">
+    <%= render 'email_form' %>
+  </div>
+  <div class="d-flex justify-content-start mx-2 my-2">
+    <h4 class="text-center mt-4 mb-2">👉 Your emails:</h4>
+  </div>
+</div>
+
+<div class="row mx-3 my-4">
+  <div class="col-7">
+    <table class="table">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Object</th>
+          <th scope="col">Content</th>
+        </tr>
+      </thead>
+      <tbody id="email-table">
+        <% @emails.sort_by(&:created_at).each do |email| %>
+        <tr id="row_<%=email.id%>">
+          <th scope="row"><%=email.id%></th>                
+          <td class="object"><%= link_to email_path(:id => email.id), method:"get", remote:"true" do%><%= email.object %><% end %></td>
+          <td class="body"><%= email.body %></td>
+        </tr>
+        <%end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-5 bg-light px-2" id='show-email'>
+  </div>
+</div>
+
+

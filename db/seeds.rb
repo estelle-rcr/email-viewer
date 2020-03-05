@@ -17,3 +17,10 @@ require 'faker'
     my_task.save
   end
 end
+
+5.times do |index|
+  Email.create!(
+    object: Faker::Cannabis.cannabinoid,
+    body: Faker::Hipster.paragraph, 
+    )
+  end

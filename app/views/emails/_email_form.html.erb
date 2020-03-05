@@ -1,0 +1,13 @@
+<div class="container my-2 mx-2 form-group">
+  <%= form_tag(emails_path, method: "post", class: "form", id: "email-form", remote: true)  do %>
+  <% if @email.errors.any? %>
+    <p class="alert alert-danger d-flex justify-body-center" role="alert"">The following error(s) ocurred:
+      <% @email.errors.full_messages.each do |message| %>
+        <%= message %></p>
+      <% end %>
+    <p>Re-send the form with the right informations</p>
+  <% end %>
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <%= submit_tag "Create email", class:"btn btn-dark" %>
+<% end %>
+</div>
