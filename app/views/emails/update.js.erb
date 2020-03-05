@@ -2,6 +2,7 @@ document.getElementById("show-email").innerHTML = "<%= j render 'email_show', em
 
 function unread() {
 document.getElementById("show-email").children[1].style.color = '#212529';
+document.getElementById("row_<%=@email.id%>").style.backgroundColor = 'white';
 }
 
 unread()

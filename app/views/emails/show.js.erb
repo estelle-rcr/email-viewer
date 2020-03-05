@@ -1,6 +1,7 @@
 document.getElementById("show-email").innerHTML = "<%= j render 'email_show', email: @email %>";
 function read() {
   document.getElementById("show-email").children[1].style.color = 'grey';
+  document.getElementById("row_<%=@email.id%>").style.backgroundColor = '#f8f9fa';
 }
 
 read();
