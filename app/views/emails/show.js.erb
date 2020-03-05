@@ -1,11 +1,6 @@
 document.getElementById("show-email").innerHTML = "<%= j render 'email_show', email: @email %>";
 function read() {
   document.getElementById("show-email").children[1].style.color = 'grey';
-  let tr = document.getElementById("row_<%=@email.id%>");
-  tr.children[1].style.color = 'grey';
-  let icon = document.createElement("i");
-  icon.classList.add = "fas fa-envelope-open";
-  tr.childNodes[0].appendChild(icon)
 }
 
 read();

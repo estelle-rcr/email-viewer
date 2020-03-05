@@ -2,11 +2,6 @@ document.getElementById("show-email").innerHTML = "<%= j render 'email_show', em
 
 function unread() {
 document.getElementById("show-email").children[1].style.color = '#212529';
-let tr = document.getElementById("row_<%=@email.id%>");
-tr.children[1].style.color = '#212529';
-let icon2 = document.createElement("i");
-icon2.classList.add = "fas fa-envelope";
-tr.childNodes[0].appendChild;
 }
 
 unread()
