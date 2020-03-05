@@ -1,4 +1,4 @@
-<div class="container my-2 mx-2 form-group">
+<div class="form-group m-0">
   <%= form_tag(emails_path, method: "post", class: "form", id: "email-form", remote: true)  do %>
   <% if @email.errors.any? %>
     <p class="alert alert-danger d-flex justify-body-center" role="alert"">The following error(s) ocurred:
