@@ -10,6 +10,11 @@ class EmailsController < ApplicationController
 
   def show
     @email = Email.find(params[:id])
+    if params[:read] == 'true'
+      @email.update(read: true)
+    elsif params[:read] == 'false'
+      @email.update(read: false)
+    end
     respond_to do |format|
       flash[:success] = "Your email has been created!"
       format.html { redirect_to @email }
@@ -36,15 +41,16 @@ class EmailsController < ApplicationController
 
   def update
     @email = Email.find(params[:id])
-      if @email.update(email_params)
-        respond_to do |format|
-          flash[:success] = "The email has been modified"
-          format.html { redirect_to root_path }
-          format.js { }
-          end
-      else
-        render :edit
-      end
+    if params[:read] == 'true'
+      @email.update(read: true)
+    elsif params[:read] == 'false'
+      @email.update(read: false)
+    end
+    respond_to do |format|
+    flash[:success] = "The email has been modified"
+    format.html { redirect_to root_path }
+    format.js { }
+    end
   end
 
   def destroy

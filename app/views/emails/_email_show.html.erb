@@ -1,5 +1,8 @@
 
-<h2 class="h1 mt-3 mb-4 ml-3 text-center">Email n°<%= @email.id %></h2>
+<h2 class="h1 mt-3 mb-4 ml-3 text-center"><% if @email.read %><i class="fas fa-envelope-open"></i>
+<% else %><i class="fas fa-envelope"></i>
+<% end %> Email n°<%= @email.id %>
+</h2>
 <container class="d-flex justify-content-around m-4">
   <div class="card-deck mb-3 d-flex justify-content-between" style="width: 36rem;">
       <div class="card mx-4">
@@ -12,7 +15,7 @@
     </container>
   <br>
   <div class="d-flex justify-content-center">
-      <p class="lead mt-3 mb-4 ml-3 text-center"><%= link_to "Mark as unread", edit_email_path(@email.id), :class => "btn btn-outline-primary" %></p>
+      <p class="lead mt-3 mb-4 ml-3 text-center"><%= link_to "Mark as unread", email_path(@email.id), :class => "btn btn-outline-primary", data: { params: {read: "false"}.to_param },  method:"PUT", remote: true %></p>
       <p class="lead mt-3 mb-4 ml-3 text-center"><%= link_to "Delete permanently", email_path(@email.id), :class => 'btn btn-outline-danger', method:"DELETE", remote: true %></p>
   </div>
   <br>
