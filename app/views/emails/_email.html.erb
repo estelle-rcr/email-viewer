@@ -1,6 +1,6 @@
 <tr id="row_<%=email.id%>">
 <th scope="row"><%=email.id%></th>                
 <td class="object"><%= link_to email_path(:id => email.id), method:"get", remote:"true" do%><%= email.object %><% end %></td>
-<td class="body"><%= email.body %></td>
+<td class="body"><%= email.body[0..50] %>...</td>
 </tr>
 
