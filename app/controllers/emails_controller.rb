@@ -23,7 +23,7 @@ class EmailsController < ApplicationController
   end
 
   def create
-    @email = Email.new('object' => Faker::Cannabis.cannabinoid, 'body' => Faker::Hipster.paragraph)
+    @email = Email.new('object' => Faker::Cannabis.cannabinoid, 'body' => Faker::Hipster.paragraph, 'read' => false)
     if @email.save 
       respond_to do |format|
         flash[:success] = "Your email has been created!"
