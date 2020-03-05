@@ -22,5 +22,6 @@ end
   Email.create!(
     object: Faker::Cannabis.cannabinoid,
     body: Faker::Hipster.paragraph, 
+    read: false,
     )
   end

@@ -11,9 +11,7 @@
             <%= task.title  %>
             <% unless task.deadline.nil? %>, to read: <%= task.deadline.strftime('%D')  %>
             <% end %>
-            <p>    </p>
             <%= link_to(content_tag(:i, nil, class: 'fa fa-trash'), task_path(task.id), method: :delete, remote: true) %>          
-            <p>    </p>
             <%= check_box_tag :done, 1, task.status, id: task.id, data: { remote: true, url: task_path(task.id), params: {id: task.id, status: task.status}.to_param, method: "put" }%>
           </li>
         <% end %>
