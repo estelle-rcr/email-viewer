@@ -10,11 +10,7 @@ class EmailsController < ApplicationController
 
   def show
     @email = Email.find(params[:id])
-    if params[:read] == 'true'
-      @email.update(read: true)
-    elsif params[:read] == 'false'
-      @email.update(read: false)
-    end
+    update_read_status(@email)
     respond_to do |format|
       flash[:success] = "Your email has been created!"
       format.html { redirect_to @email }
@@ -41,11 +37,7 @@ class EmailsController < ApplicationController
 
   def update
     @email = Email.find(params[:id])
-    if params[:read] == 'true'
-      @email.update(read: true)
-    elsif params[:read] == 'false'
-      @email.update(read: false)
-    end
+    update_read_status(@email)
     respond_to do |format|
     flash[:success] = "The email has been modified"
     format.html { redirect_to root_path }
